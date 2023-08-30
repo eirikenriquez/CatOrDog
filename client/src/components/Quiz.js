@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Question from "./Question";
 
-function Question() {
+function Quiz() {
   return;
 }
+
+export default Quiz;

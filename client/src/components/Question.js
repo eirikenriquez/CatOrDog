@@ -4,3 +4,5 @@ import axios from "axios";
 function Question() {
   return;
 }
+
+export default Question;
