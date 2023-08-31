@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>Cat or Not</h1>
+        <h1>CAT or NOT</h1>
       </header>
       <main className="app-main">
         <Quiz />

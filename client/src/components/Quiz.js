@@ -16,7 +16,7 @@ function Quiz() {
   return (
     <div className="quiz">
       <div className="quiz-header">
-        <h1>Cat or Not Quiz</h1>
+        <h2>Is it CAT or NOT?</h2>
         <p>Score: {score}</p>
         <p>Questions Answered: {userAnswers.length}</p>
       </div>
