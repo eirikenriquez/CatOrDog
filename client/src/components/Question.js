@@ -3,20 +3,47 @@ import axios from "axios";
 import "../styles/Question.css";
 
 function Question({ onAnswer }) {
-  const [catImage, setCatImage] = useState("");
+  const [petImage, setPetImage] = useState("");
   const [isImageLoading, setIsImageLoading] = useState(true);
 
   useEffect(() => {
-    fetchCatImage();
+    fetchPetImage();
   }, []); // Fetch image when component mounts and whenever answered
 
+  const fetchPetImage = () => {
+    // Choose between cat or dog image
+    const randomNum = Math.random();
+
+    if (randomNum < 0.5) {
+      fetchCatImage();
+    } else {
+      fetchDogImage();
+    }
+  };
+
+  const fetchDogImage = () => {
+    console.log("fetching dog image...");
+    setIsImageLoading(true);
+    axios
+      .get("https://dog.ceo/api/breeds/image/random")
+      .then((response) => {
+        if (response.data && response.data.message) {
+          setPetImage(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching dog image:", error);
+      });
+  };
+
   const fetchCatImage = () => {
+    console.log("fetching cat image...");
     setIsImageLoading(true);
     axios
       .get("https://api.thecatapi.com/v1/images/search")
       .then((response) => {
         if (response.data && response.data[0] && response.data[0].url) {
-          setCatImage(response.data[0].url);
+          setPetImage(response.data[0].url);
         }
       })
       .catch((error) => {
@@ -35,9 +62,9 @@ function Question({ onAnswer }) {
   return (
     <div className="question">
       <img
-        src={catImage}
-        alt="Cat"
-        className="catImage"
+        src={petImage}
+        alt="Pet"
+        className="petImage"
         onLoad={handleImageLoad}
         onError={handleImageError}
       />
@@ -45,7 +72,7 @@ function Question({ onAnswer }) {
         <button
           onClick={() => {
             onAnswer(true);
-            fetchCatImage();
+            fetchPetImage();
           }}
           disabled={isImageLoading}
         >
@@ -54,11 +81,11 @@ function Question({ onAnswer }) {
         <button
           onClick={() => {
             onAnswer(false);
-            fetchCatImage();
+            fetchPetImage();
           }}
           disabled={isImageLoading}
         >
-          NOT
+          DOG
         </button>
       </div>
     </div>
