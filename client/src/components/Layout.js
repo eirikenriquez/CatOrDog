@@ -5,11 +5,14 @@ function Layout({ children }) {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>CAT or DOG</h1>
+        <h1>CAT or DOG Quiz Game</h1>
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Play</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
             </li>
           </ul>
         </nav>
@@ -17,9 +20,6 @@ function Layout({ children }) {
       <main className="app-main">
         <Outlet />
       </main>
-      <footer className="app-footer">
-        <p>Quiz Game created by Eirik Enriquez</p>
-      </footer>
     </div>
   );
 }
