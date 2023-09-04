@@ -4,24 +4,27 @@
 /* Body Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f79fc4;
-  color: black;
+  background-color: #222222;
+  color: white;
   text-align: center;
   min-height: 100vh;
   margin: 0;
   padding: 0;
   margin: auto;
+  max-width: 85%;
 }
 
 /* Header Styles */
 header {
-  color: #f79fc4;
-  padding: 10px;
+  margin: auto;
+  color: #f980b2;
+  padding: 1px;
   text-align: center;
   animation: gradientAnimation 25s linear infinite;
   background-size: 100% 1000%;
   background-position: 0% -100%;
   background: linear-gradient(0deg, rgba(247, 159, 196, 1) 0%, rgb(255, 252, 198) 65%);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header h1,
@@ -44,10 +47,9 @@ nav ul {
   list-style: none;
   padding: 0;
   margin: auto;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
-
 
 nav li {
   align-items: center;
@@ -79,4 +81,19 @@ nav a:hover {
 .active-link {
   background-color: rgb(186, 251, 208);
   color: black;
+}
+
+/* Main Styles */
+.app-main {
+  margin: auto;
+  padding-bottom: 24px;
+  background-color: #333333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-main h2 {
+  padding-top: 12px;
 }

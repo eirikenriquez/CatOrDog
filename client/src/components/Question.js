@@ -73,7 +73,7 @@ function Question({ onAnswer }) {
       />
       <div className="answer-buttons">
         <button
-          className="button"
+          className="cat-button button"
           onClick={() => {
             onAnswer("cat", correctAnswer);
             fetchPetImage();
@@ -83,7 +83,7 @@ function Question({ onAnswer }) {
           CAT
         </button>
         <button
-          className="button"
+          className="dog-button button"
           onClick={() => {
             onAnswer("dog", correctAnswer);
             fetchPetImage();

@@ -1,5 +1,6 @@
 /* Image Style */
 .question img {
+    min-height: 360px;
     max-height: 360px;
 }
 
@@ -10,26 +11,41 @@
     align-items: center;
 }
 
+.cat-button {
+    background: linear-gradient(-45deg, #FFC400, #f3899b);
+}
+
+.dog-button {
+    background: linear-gradient(-45deg, #FFC400, #83fae2);
+}
+
 .button {
     margin-left: 4px;
     margin-right: 4px;
     color: white;
     font-weight: bold;
     padding: 8px 16px;
-    background-color: rgba(0, 0, 0, 0.25);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    /* background-color: rgba(0, 0, 0, 0.25); */
+    color: black;
+    background-size: 200% 200%;
+    background-position: 0% 0%;
+    transition: 0.3s ease;
     cursor: pointer;
-    border: none;
+    border-radius: 24px;
+    border-style: solid;
+    border-width: 2px;
     outline: none;
 }
 
 .button:disabled {
-    background-color: lightgray;
+    background: lightgray;
     color: gray;
     cursor: not-allowed;
 }
 
 .button:not(:disabled):hover {
-    background-color: gold;
+    /* background: gold; */
     color: black;
+    background-position: 100% 100%;
+    transform: scale(1.05);
 }
