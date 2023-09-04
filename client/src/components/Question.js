@@ -59,7 +59,7 @@ function Question({ onAnswer }) {
   };
 
   const handleImageError = () => {
-    setIsImageLoading(false); // Image load encountered an error
+    fetchPetImage();
   };
 
   return (
