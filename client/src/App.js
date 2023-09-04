@@ -1,20 +1,18 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Quiz from "./components/Quiz";
+import Layout from "./components/Layout";
+import Play from "./pages/Play";
 
 function App() {
   return (
-    <div className="App">
-      <header className="app-header">
-        <h1>CAT or DOG</h1>
-      </header>
-      <main className="app-main">
-        <Quiz />
-      </main>
-      <footer className="app-footer">
-        <p>Quiz Game created by Eirik Enriquez</p>
-      </footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Play />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

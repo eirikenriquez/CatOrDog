@@ -9,7 +9,7 @@ function Question({ onAnswer }) {
 
   useEffect(() => {
     fetchPetImage();
-  }, []); // Fetch image when component mounts and whenever answered
+  }, []);
 
   const fetchPetImage = () => {
     // Choose between cat or dog image
@@ -55,11 +55,11 @@ function Question({ onAnswer }) {
   };
 
   const handleImageLoad = () => {
-    setIsImageLoading(false); // Image has loaded
+    setIsImageLoading(false);
   };
 
   const handleImageError = () => {
-    fetchPetImage();
+    //fetchPetImage();
   };
 
   return (
