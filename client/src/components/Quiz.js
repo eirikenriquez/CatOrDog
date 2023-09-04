@@ -5,10 +5,10 @@ function Quiz() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [score, setScore] = useState(0);
 
-  const handleAnswer = (isCat) => {
-    const updatedAnswers = [...userAnswers, isCat];
+  const handleAnswer = (userAnswer, correctAnswer) => {
+    const updatedAnswers = [...userAnswers, userAnswer];
     setUserAnswers(updatedAnswers);
-    if (isCat) {
+    if (userAnswer === correctAnswer) {
       setScore(score + 1);
     }
   };

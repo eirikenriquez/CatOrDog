@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/Question.css";
 
 function Question({ onAnswer }) {
+  const [correctAnswer, setCorrectAnswer] = useState("");
   const [petImage, setPetImage] = useState("");
   const [isImageLoading, setIsImageLoading] = useState(true);
 
@@ -16,8 +17,10 @@ function Question({ onAnswer }) {
 
     if (randomNum < 0.5) {
       fetchCatImage();
+      setCorrectAnswer("cat");
     } else {
       fetchDogImage();
+      setCorrectAnswer("dog");
     }
   };
 
@@ -71,7 +74,7 @@ function Question({ onAnswer }) {
       <div className="answer-buttons">
         <button
           onClick={() => {
-            onAnswer(true);
+            onAnswer("cat", correctAnswer);
             fetchPetImage();
           }}
           disabled={isImageLoading}
@@ -80,7 +83,7 @@ function Question({ onAnswer }) {
         </button>
         <button
           onClick={() => {
-            onAnswer(false);
+            onAnswer("dog", correctAnswer);
             fetchPetImage();
           }}
           disabled={isImageLoading}
