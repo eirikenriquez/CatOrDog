@@ -5,7 +5,11 @@ function Layout({ children }) {
   return (
     <div className="App">
       <header className="app-header">
-        <h1>CAT or DOG Quiz Game</h1>
+        <h1>CAT or DOG</h1>
+        <h2>
+          Paws or Claws: Test Your Pet Prowess in the Ultimate CAT or DOG
+          Challenge
+        </h2>
         <nav>
           <ul>
             <li>
