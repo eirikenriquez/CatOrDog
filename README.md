@@ -35,5 +35,5 @@ This project is a part of my journey in learning frontend development. Feel free
 
 Thank you for playing and learning with me! Enjoy the quiz, and may your love for animals shine through.
 
-![Cat or Dog Quiz Game](./screenshot.png)
+![Cat or Dog Quiz Game](https://raw.githubusercontent.com/eirikenriquez/CatOrDog/3f9cebdb492f290b1021260571be572200ae0d49/Screenshot%202023-09-05%20003237.png)
 
