@@ -1,12 +1,12 @@
 p {
-    transition: color 0.3s ease-in-out, transform 0.7s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.4s ease-in-out;
     transform-origin: center;
     color: white;
     transform: scale(0.8, 0.8);
 }
 
 .score-correct {
-    transition: color 0.3s ease-in-out, transform 0.7s ease-in-out;
+    transition: color 0.3s ease-in-out, transform 0.4s ease-in-out;
     transform-origin: center;
     color: green;
     transform: scale(1.5, 1.5);
