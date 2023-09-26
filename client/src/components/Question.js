@@ -14,6 +14,7 @@ function Question({ onAnswer }) {
   const fetchPetImage = () => {
     // Choose between cat or dog image
     const randomNum = Math.random();
+    setIsImageLoading(true);
 
     if (randomNum < 0.5) {
       fetchCatImage();
@@ -26,7 +27,6 @@ function Question({ onAnswer }) {
 
   const fetchDogImage = () => {
     console.log("fetching dog image...");
-    setIsImageLoading(true);
     axios
       .get("https://dog.ceo/api/breeds/image/random")
       .then((response) => {
@@ -36,12 +36,12 @@ function Question({ onAnswer }) {
       })
       .catch((error) => {
         console.error("Error fetching dog image:", error);
+        handleImageError();
       });
   };
 
   const fetchCatImage = () => {
     console.log("fetching cat image...");
-    setIsImageLoading(true);
     axios
       .get("https://api.thecatapi.com/v1/images/search")
       .then((response) => {
@@ -51,6 +51,7 @@ function Question({ onAnswer }) {
       })
       .catch((error) => {
         console.error("Error fetching cat image:", error);
+        handleImageError();
       });
   };
 
@@ -59,7 +60,7 @@ function Question({ onAnswer }) {
   };
 
   const handleImageError = () => {
-    //fetchPetImage();
+    fetchPetImage();
   };
 
   return (
@@ -69,7 +70,6 @@ function Question({ onAnswer }) {
         alt="Pet"
         className="petImage"
         onLoad={handleImageLoad}
-        onError={handleImageError}
       />
       <div className="answer-buttons">
         <button
