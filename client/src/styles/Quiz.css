@@ -9,12 +9,12 @@ p {
     transition: color 0.3s ease-in-out, transform 0.7s ease-in-out;
     transform-origin: center;
     color: green;
-    transform: scale(2, 2);
+    transform: scale(1.5, 1.5);
 }
 
 .score-wrong {
     transition: color 0.3s ease-in-out, transform 0.7s ease-in-out;
     transform-origin: center;
     color: red;
-    transform: scale(2.5, 2.5);
+    transform: scale(2, 2);
 }
