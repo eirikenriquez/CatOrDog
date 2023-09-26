@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "../styles/Question.css";
 
@@ -6,6 +6,7 @@ function Question({ onAnswer }) {
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [petImage, setPetImage] = useState("");
   const [isImageLoading, setIsImageLoading] = useState(true);
+  const firstRender = useRef(true);
 
   useEffect(() => {
     fetchPetImage();
@@ -36,7 +37,6 @@ function Question({ onAnswer }) {
       })
       .catch((error) => {
         console.error("Error fetching dog image:", error);
-        handleImageError();
       });
   };
 
@@ -51,7 +51,6 @@ function Question({ onAnswer }) {
       })
       .catch((error) => {
         console.error("Error fetching cat image:", error);
-        handleImageError();
       });
   };
 
@@ -60,6 +59,11 @@ function Question({ onAnswer }) {
   };
 
   const handleImageError = () => {
+    // prevent error on first load
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
     fetchPetImage();
   };
 
@@ -70,6 +74,7 @@ function Question({ onAnswer }) {
         alt="Pet"
         className="petImage"
         onLoad={handleImageLoad}
+        onError={handleImageError}
       />
       <div className="answer-buttons">
         <button

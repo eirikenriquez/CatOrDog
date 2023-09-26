@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Question from "./Question";
 
 function Quiz() {
-  const [userAnswers, setUserAnswers] = useState([]);
-  const [score, setScore] = useState(0);
+  const [userAnswers, setUserAnswers] = useState(() => {
+    const storedUserAnswers = sessionStorage.getItem("userAnswers");
+    return storedUserAnswers ? JSON.parse(storedUserAnswers) : [];
+  });
+
+  const [score, setScore] = useState(() => {
+    const storedScore = sessionStorage.getItem("score");
+    return storedScore ? parseInt(storedScore, 10) : 0;
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem("userAnswers", JSON.stringify(userAnswers));
+    sessionStorage.setItem("score", score.toString());
+  }, [userAnswers, score]);
 
   const handleAnswer = (userAnswer, correctAnswer) => {
     const updatedAnswers = [...userAnswers, userAnswer];
