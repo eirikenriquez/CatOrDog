@@ -37,8 +37,15 @@ function Quiz() {
         <h2>Is it a CAT or a DOG?</h2>
         {resultText === "" ? (
           <p>
-            Score: {score} ({((score / answersCount) * 100).toFixed(0)}%
-            correct)
+            Score: {score}{" "}
+            {answersCount > 0 ? (
+              <span>
+                {" "}
+                ({((score / answersCount) * 100).toFixed(0)} % correct)
+              </span>
+            ) : (
+              <p></p>
+            )}
           </p>
         ) : (
           <p className={resultClass}>{resultText}</p>
