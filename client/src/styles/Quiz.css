@@ -5,14 +5,14 @@ p {
     transform: scale(0.8, 0.8);
 }
 
-.score-correct {
+.answer-correct {
     transition: color 0.3s ease-in-out, transform 0.4s ease-in-out;
     transform-origin: center;
     transform: scale(1.5, 1.5);
     color: green;
 }
 
-.score-wrong {
+.answer-wrong {
     transition: color 0.3s ease-in-out, transform 0.7s ease-in-out;
     transform-origin: center;
     color: red;

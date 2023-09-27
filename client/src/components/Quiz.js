@@ -1,48 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Question from "./Question";
 import "../styles/Quiz.css";
 
 function Quiz() {
-  const [userAnswers, setUserAnswers] = useState(() => {
-    const storedUserAnswers = sessionStorage.getItem("userAnswers");
-    return storedUserAnswers ? JSON.parse(storedUserAnswers) : [];
-  });
+  const [answersCount, setAnswersCount] = useState(0);
+  const [score, setScore] = useState(0);
+  const [resultClass, setResultClass] = useState("");
+  const [resultText, setResultText] = useState("");
 
-  const [score, setScore] = useState(() => {
-    const storedScore = sessionStorage.getItem("score");
-    return storedScore ? parseInt(storedScore, 10) : 0;
-  });
+  const updateScoreDisplay = (resultText, resultClass, timeoutDuration) => {
+    // show correct/wrong message depending on answer
+    setResultText(resultText);
+    setResultClass(resultClass);
 
-  const [scoreClass, setScoreClass] = useState("");
-  const [scoreText, setScoreText] = useState(`Score: ${score}`);
-
-  useEffect(() => {
-    sessionStorage.setItem("userAnswers", JSON.stringify(userAnswers));
-    sessionStorage.setItem("score", score.toString());
-  }, [userAnswers, score]);
+    // display score after
+    setTimeout(() => {
+      setResultText("");
+      setResultClass("");
+    }, timeoutDuration);
+  };
 
   const handleAnswer = (userAnswer, correctAnswer) => {
-    const updatedAnswers = [...userAnswers, userAnswer];
-    const updateScoreDisplay = (
-      scoreText,
-      scoreClass,
-      timeoutDuration,
-      isCorrect
-    ) => {
-      if (isCorrect) setScore(score + 1);
-      setScoreText(scoreText);
-      setScoreClass(scoreClass);
-      setTimeout(() => {
-        setScoreText(`Score: ${score}`);
-        setScoreClass("");
-      }, timeoutDuration);
-    };
+    setAnswersCount(answersCount + 1);
 
-    setUserAnswers(updatedAnswers);
     if (userAnswer === correctAnswer) {
-      updateScoreDisplay("Correct! Nice one :^)", "score-correct", 1000, true);
+      setScore(score + 1);
+      updateScoreDisplay("Correct! Nice one :^)", "answer-correct", 1000);
     } else {
-      updateScoreDisplay("WRONG! Unlucky 😭", "score-wrong", 1500, false);
+      updateScoreDisplay("WRONG! Unlucky 😭", "answer-wrong", 1500);
     }
   };
 
@@ -50,8 +35,15 @@ function Quiz() {
     <div className="quiz">
       <div className="quiz-header">
         <h2>Is it a CAT or a DOG?</h2>
-        <p className={scoreClass}>{scoreText}</p>
-        <p>Questions Answered: {userAnswers.length}</p>
+        {resultText === "" ? (
+          <p>
+            Score: {score} ({((score / answersCount) * 100).toFixed(0)}%
+            correct)
+          </p>
+        ) : (
+          <p className={resultClass}>{resultText}</p>
+        )}
+        <p>Questions Answered: {answersCount}</p>
       </div>
       <Question onAnswer={handleAnswer} />
     </div>
