@@ -14,6 +14,13 @@ function Quiz() {
   const [resultClass, setResultClass] = useState("");
   const [resultText, setResultText] = useState("");
 
+  const resetData = () => {
+    setAnswersCount(0);
+    sessionStorage.setItem("answersCount", 0);
+    setScore(0);
+    sessionStorage.setItem("score", 0);
+  };
+
   const updateScoreDisplay = (resultText, resultClass, timeoutDuration) => {
     // show correct/wrong message depending on answer
     setResultText(resultText);
@@ -61,6 +68,11 @@ function Quiz() {
         <p>Questions Answered: {answersCount}</p>
       </div>
       <Question onAnswer={handleAnswer} />
+      <div>
+        <button className="" onClick={resetData}>
+          Reset Score
+        </button>
+      </div>
     </div>
   );
 }
