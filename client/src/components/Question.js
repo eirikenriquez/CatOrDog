@@ -4,9 +4,14 @@ import "../styles/Question.css";
 
 function Question({ onAnswer }) {
   const [correctAnswer, setCorrectAnswer] = useState("");
-  const [petImage, setPetImage] = useState("");
+  const emptyImageUrl =
+    "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+  const [petImage, setPetImage] = useState(emptyImageUrl);
   const [isImageLoading, setIsImageLoading] = useState(true);
-  const firstRender = useRef(true);
+
+  useEffect(() => {
+    fetchPetImage();
+  }, []);
 
   const fetchPetImage = () => {
     // Choose between cat or dog image
@@ -21,10 +26,6 @@ function Question({ onAnswer }) {
       setCorrectAnswer("dog");
     }
   };
-
-  useEffect(() => {
-    fetchPetImage();
-  }, []);
 
   const fetchDogImage = () => {
     console.log("fetching dog image...");
@@ -59,11 +60,6 @@ function Question({ onAnswer }) {
   };
 
   const handleImageError = () => {
-    // prevent error on first load
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
     fetchPetImage();
   };
 
