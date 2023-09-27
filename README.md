@@ -29,6 +29,11 @@ To run this project locally, follow these steps:
 3. Start the development server with `npm start` or `yarn start`.
 4. Open your web browser and visit `http://localhost:3000`.
 
+## APIs Used
+
+- [The Cat API](https://thecatapi.com/)
+- [Dog CEO's Dog API](https://dog.ceo/dog-api/)
+
 ## Feedback and Contributions
 
 This project is a part of my journey in learning frontend development. Feel free to explore the code, provide feedback, or even contribute to its development. Your input is highly appreciated!
