@@ -21,20 +21,53 @@ function About() {
         As an animal lover, I found it exciting to work with free APIs that
         provide an endless supply of cat and dog images for this project.
       </p>
+      <p>The APIs used in this project are:</p>
+      <ul>
+        <li>
+          <a
+            href="https://thecatapi.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Cat API
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://dog.ceo/dog-api/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            The Dog API
+          </a>
+        </li>
+      </ul>
+
       <p>
         This project is a part of my journey in learning frontend development,
         and it's hosted on GitHub. Feel free to explore the code and provide
         feedback:
       </p>
-      <p>
-        <a
-          href="https://github.com/eirikenriquez"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Visit My GitHub Profile
-        </a>
-      </p>
+      <ul>
+        <li>
+          <a
+            href="https://github.com/eirikenriquez"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit My GitHub Profile
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/eirikenriquez/CatOrDog"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit The GitHub Repo For This Site
+          </a>
+        </li>
+      </ul>
       <p>
         Thank you for playing and learning with me! Enjoy the quiz, and may your
         love for animals shine through.
