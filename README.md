@@ -32,7 +32,7 @@ To access the deployed version of the game, click the following link: [Cat or Do
 
 ## APIs Used
 - [The Cat API](https://thecatapi.com/)
-- [Dog CEO's Dog API](https://dog.ceo/dog-api/)
+- [The Dog API](https://dog.ceo/dog-api/)
 
 ## Feedback and Contributions
 This project is a part of my journey in learning frontend development. Feel free to explore the code, provide feedback, or even contribute to its development. Your input is highly appreciated!
