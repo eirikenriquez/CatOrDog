@@ -23,7 +23,7 @@ To run this project locally, follow these steps:
 4. Open your web browser and visit `http://localhost:3000`.
 
 ### Accessing the Deployed version
-To access the deployed version of the game, click the following link: [Cat or Dog Quiz](https://cat-or-dog-eirikenriquez.vercel.app/)
+To access the deployed version of the game, click the following link: [Cat or Dog Quiz](https://catordog-quiz.vercel.app/)
 
 ## Technologies Used
 - React
