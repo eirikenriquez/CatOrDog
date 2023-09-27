@@ -69,8 +69,8 @@ function Quiz() {
       </div>
       <Question onAnswer={handleAnswer} />
       <div>
-        <button className="" onClick={resetData}>
-          Reset Score
+        <button className="reset" onClick={resetData}>
+          RESET SCORE
         </button>
       </div>
     </div>
