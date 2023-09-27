@@ -3,8 +3,14 @@ import Question from "./Question";
 import "../styles/Quiz.css";
 
 function Quiz() {
-  const [answersCount, setAnswersCount] = useState(0);
-  const [score, setScore] = useState(0);
+  const [answersCount, setAnswersCount] = useState(() => {
+    const storedAnswersCount = sessionStorage.getItem("answersCount");
+    return storedAnswersCount ? parseInt(storedAnswersCount, 10) : 0;
+  });
+  const [score, setScore] = useState(() => {
+    const storedScore = sessionStorage.getItem("score");
+    return storedScore ? parseInt(storedScore, 10) : 0;
+  });
   const [resultClass, setResultClass] = useState("");
   const [resultText, setResultText] = useState("");
 
@@ -22,9 +28,11 @@ function Quiz() {
 
   const handleAnswer = (userAnswer, correctAnswer) => {
     setAnswersCount(answersCount + 1);
+    sessionStorage.setItem("answersCount", (answersCount + 1).toString());
 
     if (userAnswer === correctAnswer) {
       setScore(score + 1);
+      sessionStorage.setItem("score", (score + 1).toString());
       updateScoreDisplay("Correct! Nice one :^)", "answer-correct", 1000);
     } else {
       updateScoreDisplay("WRONG! Unlucky 😭", "answer-wrong", 1500);
