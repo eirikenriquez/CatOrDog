@@ -45,7 +45,7 @@ function Quiz() {
     if (userAnswer === correctAnswer) {
       setScore(score + 1);
       sessionStorage.setItem("score", (score + 1).toString());
-      updateScoreDisplay("Correct! Nice one :^)", "answer-correct", 1000);
+      updateScoreDisplay("Correct! Nice one 😃", "answer-correct", 1000);
     } else {
       updateScoreDisplay("WRONG! Unlucky 😭", "answer-wrong", 1500);
     }
