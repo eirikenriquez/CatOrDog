@@ -23,22 +23,26 @@ function Quiz() {
 
   const handleAnswer = (userAnswer, correctAnswer) => {
     const updatedAnswers = [...userAnswers, userAnswer];
+    const updateScoreDisplay = (
+      scoreText,
+      scoreClass,
+      timeoutDuration,
+      isCorrect
+    ) => {
+      if (isCorrect) setScore(score + 1);
+      setScoreText(scoreText);
+      setScoreClass(scoreClass);
+      setTimeout(() => {
+        setScoreText(`Score: ${score}`);
+        setScoreClass("");
+      }, timeoutDuration);
+    };
+
     setUserAnswers(updatedAnswers);
     if (userAnswer === correctAnswer) {
-      setScore(score + 1);
-      setScoreText("Correct! Nice one :^)");
-      setScoreClass("score-correct");
-      setTimeout(() => {
-        setScoreText(`Score: ${score}`);
-        setScoreClass("");
-      }, 1000);
+      updateScoreDisplay("Correct! Nice one :^)", "score-correct", 1000, true);
     } else {
-      setScoreText("WRONG! Unlucky 😭");
-      setScoreClass("score-wrong");
-      setTimeout(() => {
-        setScoreText(`Score: ${score}`);
-        setScoreClass("");
-      }, 1500);
+      updateScoreDisplay("WRONG! Unlucky 😭", "score-wrong", 1500, false);
     }
   };
 

@@ -8,10 +8,6 @@ function Question({ onAnswer }) {
   const [isImageLoading, setIsImageLoading] = useState(true);
   const firstRender = useRef(true);
 
-  useEffect(() => {
-    fetchPetImage();
-  }, []);
-
   const fetchPetImage = () => {
     // Choose between cat or dog image
     const randomNum = Math.random();
@@ -25,6 +21,10 @@ function Question({ onAnswer }) {
       setCorrectAnswer("dog");
     }
   };
+
+  useEffect(() => {
+    fetchPetImage();
+  }, []);
 
   const fetchDogImage = () => {
     console.log("fetching dog image...");
