@@ -13,16 +13,16 @@ function Quiz() {
   });
   const [resultClass, setResultClass] = useState("");
   const [resultText, setResultText] = useState("");
-  const [scoreResetted, setScoreResetted] = useState(false);
+  const [scoreReset, setScoreReset] = useState(false);
 
   const resetData = () => {
     setAnswersCount(0);
     sessionStorage.setItem("answersCount", 0);
     setScore(0);
     sessionStorage.setItem("score", 0);
-    setScoreResetted(true);
+    setScoreReset(true);
     setTimeout(() => {
-      setScoreResetted(false);
+      setScoreReset(false);
     }, 1000);
   };
 
@@ -74,9 +74,9 @@ function Quiz() {
       </div>
       <Question onAnswer={handleAnswer} />
       <div>
-        <button className="reset" onClick={resetData} disabled={scoreResetted}>
-          {scoreResetted ? (
-            <span>SCORE RESETTED!</span>
+        <button className="reset" onClick={resetData} disabled={scoreReset}>
+          {scoreReset ? (
+            <span>SCORE HAS BEEN RESET!</span>
           ) : (
             <span>RESET SCORE</span>
           )}
