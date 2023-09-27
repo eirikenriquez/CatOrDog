@@ -36,6 +36,12 @@ p {
     outline: none;
 }
 
+.reset:disabled {
+    background: lightgray;
+    color: gray;
+    cursor: not-allowed;
+}
+
 .reset:not(:disabled):hover {
     background-color: rgb(178, 0, 0);
     background-position: 100% 100%;
